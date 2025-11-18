@@ -82,47 +82,6 @@ class CustomFooter extends HTMLElement {
                     background-color: rgba(255, 255, 255, 0.2);
                     transform: translateY(-3px);
                 }
-
+                
                 .footer-bottom {
-                    text-align: center;
-                    padding-top: 2rem;
-                    border-top: 1px solid rgba(255, 255, 255, 0.1);
-                    margin-top: 2rem;
-                    color: rgba(255, 255, 255, 0.7);
-                    font-size: 0.875rem;
-                }
-            </style>
-
-            <footer>
-                <div class="container">
-                    <div class="footer-content">
-                        <div class="footer-column">
-                            <h3>Sobre Nós</h3>
-                            <p>Somos uma empresa especializada em criação de sites profissionais e otimizados.</p>
-                        </div>
-                        <div class="footer-column">
-                            <h3>Contato</h3>
-                            <ul>
-                                <li><a href="vitorgomesc@yahoo.com">vitorgomesc@yahoo.com</a></li>
-                                <li><a href="https://wa.me/4407704424643" target="_blank">WhatsApp</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-column">
-                            <h3>Redes Sociais</h3>
-                            <div class="social-links">
-                                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer-bottom">
-                        © 2025 Sua Empresa. Todos os direitos reservados.
-                    </div>
-                </div>
-            </footer>
-        `;
-    }
-}
-
-customElements.define('custom-footer', CustomFooter);
+                    text-align: center
