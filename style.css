@@ -1,0 +1,62 @@
+/* Custom styles that aren't covered by Tailwind */
+body {
+    scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Section padding */
+section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1D3557;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0f2138;
+}
+
+/* Smooth hover transitions */
+.transition-slow {
+    transition: all 0.5s ease;
+}
+
+/* FAQ accordion */
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+/* Form inputs */
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(29, 53, 87, 0.2);
+}
+
+/* Custom background patterns */
+.bg-pattern {
+    background-image: radial-gradient(rgba(29, 53, 87, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
