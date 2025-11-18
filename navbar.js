@@ -1,6 +1,11 @@
+
 class CustomNavbar extends HTMLElement {
+    static get observedAttributes() {
+        return ['current-page'];
+    }
+
     connectedCallback() {
-        this.attachShadow({ mode: 'open' });
+this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `
             <style>
                 :host {
@@ -28,15 +33,17 @@ class CustomNavbar extends HTMLElement {
                     justify-content: space-between;
                     align-items: center;
                 }
-                
                 .logo {
                     font-size: 1.5rem;
                     font-weight: 700;
                     color: #1D3557;
                     text-decoration: none;
+                    transition: all 0.3s;
                 }
-                
-                .nav-links {
+                .logo:hover {
+                    color: #457B9D;
+                }
+.nav-links {
                     display: flex;
                     gap: 2rem;
                 }
@@ -48,12 +55,15 @@ class CustomNavbar extends HTMLElement {
                     transition: color 0.3s;
                     position: relative;
                 }
-                
-                .nav-links a:hover {
+                .nav-links a:hover,
+                .nav-links a.active {
                     color: #457B9D;
                 }
-                
-                .nav-links a::after {
+
+                .nav-links a.active::after {
+                    width: 100%;
+                }
+.nav-links a::after {
                     content: '';
                     position: absolute;
                     bottom: -5px;
@@ -102,13 +112,15 @@ class CustomNavbar extends HTMLElement {
             </style>
             <nav>
                 <div class="container">
-                    <a href="#" class="logo">INOVIX</a>
-                    <button class="mobile-menu-btn">
+                    <a href="/" class="logo">
+                        Inovix
+                    </a>
+<button class="mobile-menu-btn">
                         <i data-feather="menu"></i>
                     </button>
                     <div class="nav-links">
-                        <a href="#">Início</a>
-                        <a href="#services">Serviços</a>
+                        <a href="/">Início</a>
+<a href="#services">Serviços</a>
                         <a href="#portfolio">Portfólio</a>
                         <a href="#contact">Contato</a>
                     </div>
