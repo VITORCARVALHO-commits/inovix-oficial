@@ -63,6 +63,16 @@ this.attachShadow({ mode: 'open' });
                 .nav-links a.active::after {
                     width: 100%;
                 }
+                
+                .nav-login {
+                    background: rgba(29,53,87,0.08);
+                    border: 1.5px solid rgba(29,53,87,0.22) !important;
+                    padding: 0.35rem 1.1rem;
+                    border-radius: 6px;
+                }
+                .nav-login:hover {
+                    background: rgba(29,53,87,0.15);
+                }
 .nav-links a::after {
                     content: '';
                     position: absolute;
@@ -123,6 +133,7 @@ this.attachShadow({ mode: 'open' });
 <a href="#services">Serviços</a>
                         <a href="#portfolio">Portfólio</a>
                         <a href="#contact">Contato</a>
+                        <a href="#contact" class="nav-login">Entrar</a>
                     </div>
                 </div>
             </nav>

@@ -60,3 +60,290 @@ input:focus, textarea:focus {
     background-image: radial-gradient(rgba(29, 53, 87, 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
 }
+
+/* ===== BOOK HERO ===== */
+.book-hero {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse 70% 50% at 50% 38%, #0d1e38 0%, #04080f 75%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.book-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 40% at 52% 42%, rgba(29,53,87,0.22) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.book-stage {
+    perspective: 2400px;
+    perspective-origin: 50% 44%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+}
+
+/* ---- The 3D book ---- */
+.book {
+    width: 260px;
+    height: 370px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(6deg) rotateY(-28deg);
+    transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                filter   0.55s ease;
+    cursor: pointer;
+    filter: drop-shadow(0 35px 70px rgba(0,0,0,0.85));
+}
+
+.book:hover {
+    transform: rotateX(3deg) rotateY(-14deg) translateY(-14px);
+    filter: drop-shadow(0 55px 90px rgba(0,0,0,0.95));
+}
+
+/* Cover wrapper — pivots at spine (left edge) on click */
+.book-cover {
+    position: absolute;
+    inset: 0;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: transform 1.5s cubic-bezier(0.6, 0.05, 0.18, 1);
+    z-index: 3;
+}
+
+.book-cover.open {
+    transform: rotateY(-168deg);
+}
+
+/* Front face of cover */
+.book-cover-front {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 55%),
+        linear-gradient(160deg, #1c3a62 0%, #0e2040 52%, #1a3560 100%);
+    border-radius: 3px 10px 10px 3px;
+    border-left: 3px solid rgba(255,255,255,0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 1.5rem;
+    overflow: hidden;
+}
+
+.book-cover-front::before {
+    content: '';
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(69,123,157,0.22) 0%, transparent 68%);
+    pointer-events: none;
+}
+
+.book-cover-front::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; left: -10px;
+    width: 140px; height: 140px;
+    background: radial-gradient(circle, rgba(240,192,64,0.09) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.cover-badge {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #f0c040;
+    background: rgba(240,192,64,0.1);
+    border: 1px solid rgba(240,192,64,0.28);
+    padding: 0.28rem 0.75rem;
+    border-radius: 100px;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.cover-brand {
+    font-size: 3.8rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-shadow: 0 4px 28px rgba(0,0,0,0.45);
+}
+
+.cover-divider {
+    width: 38px;
+    height: 2px;
+    background: linear-gradient(to right, #f0c040, transparent);
+    margin: -0.4rem 0;
+}
+
+.cover-tagline {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.75;
+}
+
+.cover-url {
+    font-size: 0.63rem;
+    color: rgba(255,255,255,0.28);
+    letter-spacing: 0.12em;
+}
+
+/* Back face of cover (inside cover when open) */
+.book-cover-back-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    background: linear-gradient(160deg, #102035 0%, #0c1825 100%);
+    border-radius: 10px 3px 3px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.back-quote {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.82rem;
+    line-height: 1.85;
+    text-align: center;
+    font-style: italic;
+}
+
+/* ---- Spine face (left) ---- */
+.book-spine-face {
+    position: absolute;
+    width: 35px;
+    height: 370px;
+    left: -35px;
+    top: 0;
+    transform-origin: right center;
+    transform: rotateY(-90deg);
+    background: linear-gradient(to right, #070e1c, #0f1f38, #0a1528);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-spine-face::after {
+    content: 'INOVIX';
+    font-size: 0.54rem;
+    font-weight: 800;
+    letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.32);
+    transform: rotate(90deg);
+    white-space: nowrap;
+}
+
+/* ---- Pages face (right) ---- */
+.book-pages-face {
+    position: absolute;
+    width: 35px;
+    height: 364px;
+    right: -35px;
+    top: 3px;
+    transform-origin: left center;
+    transform: rotateY(90deg);
+    background: repeating-linear-gradient(
+        to bottom,
+        #f0e8d8 0px,
+        #f0e8d8 2px,
+        #e4dac8 2px,
+        #e4dac8 3px
+    );
+}
+
+/* ---- Top face ---- */
+.book-top-face {
+    position: absolute;
+    width: 260px;
+    height: 35px;
+    top: -17px;
+    left: 0;
+    transform-origin: bottom center;
+    transform: rotateX(90deg);
+    background: linear-gradient(to right, #0a1526, #1a3560);
+}
+
+/* ---- Bottom face ---- */
+.book-bottom-face {
+    position: absolute;
+    width: 260px;
+    height: 35px;
+    bottom: -17px;
+    left: 0;
+    transform-origin: top center;
+    transform: rotateX(-90deg);
+    background: linear-gradient(to right, #0a1526, #1a3560);
+}
+
+/* ---- Inside (visible after cover opens) ---- */
+.book-inside {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(150deg, #f8f4ec, #ede8de);
+    border-radius: 3px 10px 10px 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.inside-content {
+    text-align: center;
+    color: #1D3557;
+}
+
+.inside-ornament {
+    display: block;
+    font-size: 1.4rem;
+    color: #c09030;
+    margin-bottom: 0.5rem;
+}
+
+.inside-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 0.3rem;
+}
+
+.inside-sub {
+    font-size: 0.72rem;
+    color: rgba(29,53,87,0.5);
+}
+
+/* ---- Hint text ---- */
+.book-hint {
+    color: rgba(255,255,255,0.32);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0;
+    animation: hintPulse 2.8s ease infinite;
+    user-select: none;
+}
+
+@keyframes hintPulse {
+    0%, 100% { opacity: 0.32; transform: translateY(0); }
+    50%       { opacity: 0.7;  transform: translateY(-5px); }
+}
+
+/* Hide hint when book is open */
+.book-hint.hidden {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}

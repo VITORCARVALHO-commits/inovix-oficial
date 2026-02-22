@@ -103,7 +103,7 @@ class CustomFooter extends HTMLElement {
                         <div class="footer-column">
                             <h3>Contato</h3>
                             <ul>
-                                <li><a href="vitorgomesc@yahoo.com">vitorgomesc@yahoo.com</a></li>
+                                <li><a href="mailto:vitorgomesc@yahoo.com">vitorgomesc@yahoo.com</a></li>
                                 <li><a href="https://wa.me/4407704424643" target="_blank">WhatsApp</a></li>
                             </ul>
                         </div>
