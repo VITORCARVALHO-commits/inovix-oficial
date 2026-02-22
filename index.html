@@ -42,21 +42,41 @@
 <body class="font-poppins bg-white text-inovix-primary">
   <custom-navbar></custom-navbar>
 
-  <!-- Hero Section -->
-  <section class="relative bg-inovix-primary text-white py-20 md:py-32">
-    <div class="container mx-auto px-6 md:px-12 text-center">
-      <h1 class="text-4xl md:text-6xl font-bold mb-6">Transformamos ideias em presença digital</h1>
-      <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Sites profissionais, rápidos e sob medida para o seu negócio crescer online</p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#contact" class="bg-white text-inovix-primary hover:bg-gray-100 px-8 py-3 rounded-lg font-medium transition duration-300">
-          Solicitar orçamento
-        </a>
-        <a href="https://wa.me/4407704424643" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-medium transition duration-300 flex items-center justify-center gap-2">
-          <i data-feather="message-circle"></i> Falar no WhatsApp
-        </a>
+  <!-- Book Hero Section -->
+  <section class="book-hero" id="home">
+    <div class="book-stage">
+      <div class="book" id="mainBook" role="button" tabindex="0" aria-label="Clique para abrir">
+        <!-- Cover (flips on click) -->
+        <div class="book-cover" id="bookCover">
+          <div class="book-cover-front">
+            <div class="cover-badge">Agência Digital</div>
+            <div class="cover-brand">Inovix</div>
+            <div class="cover-divider"></div>
+            <div class="cover-tagline">Transformamos ideias<br>em presença digital</div>
+            <div class="cover-url">www.inovix.digital</div>
+          </div>
+          <div class="book-cover-back-face">
+            <p class="back-quote">"Sites profissionais, rápidos e sob medida para o seu negócio crescer online."</p>
+          </div>
+        </div>
+        <!-- Spine (left face) -->
+        <div class="book-spine-face"></div>
+        <!-- Pages (right face) -->
+        <div class="book-pages-face"></div>
+        <!-- Top / Bottom faces -->
+        <div class="book-top-face"></div>
+        <div class="book-bottom-face"></div>
+        <!-- Inside revealed when cover opens -->
+        <div class="book-inside">
+          <div class="inside-content">
+            <span class="inside-ornament">✦</span>
+            <p class="inside-label">Bem-vindo à Inovix</p>
+            <small class="inside-sub">A descobrir os nossos serviços…</small>
+          </div>
+        </div>
       </div>
+      <p class="book-hint" id="bookHint">Clique para abrir</p>
     </div>
-    <div class="absolute bottom-0 left-0 right-0 h-16 bg-white transform skew-y-1 -mb-8 z-10"></div>
   </section>
 
   <!-- About Section -->
@@ -376,8 +396,8 @@
   </a>
 
   <!-- Scripts (escolha 1 padrão e mantenha) -->
-  <script src="components/navbar.js"></script>
-  <script src="components/footer.js"></script>
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
   <script src="script.js"></script>
 
   <script>

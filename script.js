@@ -8,6 +8,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// ===== BOOK HERO — click to open =====
+(function () {
+    const book      = document.getElementById('mainBook');
+    const cover     = document.getElementById('bookCover');
+    const hint      = document.getElementById('bookHint');
+    if (!book || !cover) return;
+
+    function openBook() {
+        cover.classList.add('open');
+        book.style.cursor   = 'default';
+        book.style.pointerEvents = 'none';
+        if (hint) hint.classList.add('hidden');
+
+        // Begin scrolling once the cover flip is mostly complete (CSS transition: 1.5s)
+        var SCROLL_DELAY_MS = 1100;
+        setTimeout(function () {
+            var next = document.getElementById('services');
+            if (next) next.scrollIntoView({ behavior: 'smooth' });
+        }, SCROLL_DELAY_MS);
+    }
+
+    book.addEventListener('click', openBook);
+    book.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openBook();
+        }
+    });
+})();
+
 // FAQ accordion functionality
 document.querySelectorAll('#faq button').forEach(button => {
     button.addEventListener('click', () => {
